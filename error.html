@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Contoh Script Error HTML</title>
+</head>
+<body>
+  <h2>Demo Error Reference</h2>
+  <p id="status">Menjalankan script...</p>
+  <p id="error" style="color:red; font-weight:bold;"></p>
+
+  <script>
+    try {
+      // Kesalahan: menggunakan variabel sebelum dideklarasikan
+      console.log(nilaiYangBelumAda); 
+      let nilaiYangBelumAda = 10; // deklarasi setelahnya, tapi sudah error lebih dulu
+    } catch (err) {
+      document.getElementById("error").innerText = "Terjadi error: " + err.message;
+      console.error("Detail error:", err);
+    } finally {
+      document.getElementById("status").innerText = "Proses selesai (terjadi error).";
+    }
+  </script>
+</body>
+</html>
